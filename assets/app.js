@@ -14,13 +14,13 @@ $(document).ready(function () {
             $(gifButton).on("click", function () {
                 var gifValue = $(this).attr("data-gif");
                 console.log(gifValue);
-                var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=QfDu8gvud0UeeoUCt5HdvHGrLwnNEMw5&q=" + gifValue + "&limit=10&offset=0";
+                var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=dAl8qLXL4ry8XzGCVzDgdRq1cV4Nm7jT&q=" + gifValue + "&limit=10&offset=0";
                 // console.log(queryURL)
                 $.ajax({
                     url: queryURL,
                     method: "GET"
                 }).then(function (response) {
-                    // console.log(response);
+                    console.log(response);
                     var results = response.data;
 
                     for (var i = 0; i < results.length; i++) {
@@ -34,6 +34,7 @@ $(document).ready(function () {
 
                         gifDiv.append(rating);
                         gifDiv.append(gifImage);
+                        $("#gif-area").prepend(gifDiv);
 
 
                     }
